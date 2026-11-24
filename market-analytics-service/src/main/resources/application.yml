@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: market-analytics-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/smca-analytics-db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:RK^mysqldb@2026}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    dialect: org.hibernate.dialect.MySQLDialect
+
+app:
+  admin-service:
+    base-url: ${ADMIN_SERVICE_URL:http://localhost:8081}
